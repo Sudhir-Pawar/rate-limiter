@@ -6,7 +6,7 @@ interface SlidingWCState {
   currentWindowStartTime: number;
 }
 
-export class slidingWindowCounterStratergy implements RateLimiterStratergy {
+export class SlidingWindowCounterStratergy implements RateLimiterStratergy {
   private maxRequestAllowed: number;
   private windowInSec: number;
   private windows: Map<string, SlidingWCState>;

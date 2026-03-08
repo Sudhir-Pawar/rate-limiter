@@ -1,7 +1,7 @@
 import { RATE_LIMIT_ALGO_TYPE } from "../enums/rate-limit-algo-type";
 import { RateLimiterStratergy } from "../interface/rate-limiter-stratergy";
 import { FixedWindowCounterStratergy } from "../stratergy/fixed-window-counter-stratergy";
-import { slidingWindowCounterStratergy } from "../stratergy/sliding-window-counter-stratergy";
+import { SlidingWindowCounterStratergy } from "../stratergy/sliding-window-counter-stratergy";
 import { SlidingWindowLogStratergy } from "../stratergy/sliding-window-log-stratergy";
 import { TokenBucketStratergy } from "../stratergy/token-bucket-stratergy";
 import { TumblingWindowCounterStratergy } from "../stratergy/tumbling-window-counter-stratergy";
@@ -22,7 +22,7 @@ export class RateLimiterFactory {
       case RATE_LIMIT_ALGO_TYPE.SLIDING_WINDOW_LOG:
         return new SlidingWindowLogStratergy(capacity, durationInMS);
       case RATE_LIMIT_ALGO_TYPE.SLIDING_WINDOW_COUNTER:
-        return new slidingWindowCounterStratergy(capacity, durationInMS);
+        return new SlidingWindowCounterStratergy(capacity, durationInMS);
       default:
         throw new Error("Invalid RATE_LIMIT_ALGO_TYPE");
     }
